@@ -29,7 +29,7 @@ export async function notify(name: string, url: string, status: Status, issueUrl
   const eventPath = eventName === 'pull_request' ? `/pull/${number}` : `/commit/${sha}`;
   const eventUrl = `${repoUrl}${eventPath}`;
   const checksUrl = `${repoUrl}${eventPath}/checks`;
-  const author = author === "" ? github.context.actor : author
+  const actor = author === "" ? github.context.actor : author
   const resource_url = issueUrl === "" ? checksUrl : issueUrl
   const button_type = issueUrl === "" ? "OPEN CHECKS" : "OPEN ISSUE"
 
@@ -61,7 +61,7 @@ export async function notify(name: string, url: string, status: Status, issueUrl
               }
             },
             {
-              keyValue: { topLabel: "author", content: author }
+              keyValue: { topLabel: "author", content: actor }
             },
             {
               keyValue: { topLabel: "ref", content: ref }
