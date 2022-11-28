@@ -21,7 +21,7 @@ const textButton = (text: string, url: string) => ({
   }
 });
 
-export async function notify(name: string, url: string, status: Status, issueUrl = "") {
+export async function notify(name: string, url: string, status: Status, issueUrl = "", author = "") {
   const { owner, repo } = github.context.repo;
   const { eventName, sha, ref } = github.context;
   const { number } = github.context.issue;
@@ -29,7 +29,7 @@ export async function notify(name: string, url: string, status: Status, issueUrl
   const eventPath = eventName === 'pull_request' ? `/pull/${number}` : `/commit/${sha}`;
   const eventUrl = `${repoUrl}${eventPath}`;
   const checksUrl = `${repoUrl}${eventPath}/checks`;
-  const author = github.context.actor;
+  const author = author === "" ? github.context.actor : author
   const resource_url = issueUrl === "" ? checksUrl : issueUrl
   const button_type = issueUrl === "" ? "OPEN CHECKS" : "OPEN ISSUE"
 
