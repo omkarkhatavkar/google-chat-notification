@@ -30,6 +30,8 @@ export async function notify(name: string, url: string, status: Status, issueUrl
   const eventUrl = `${repoUrl}${eventPath}`;
   const checksUrl = `${repoUrl}${eventPath}/checks`;
   const actor = author === "" ? github.context.actor : author
+  console.log(actor)
+  console.log(author)
   const resource_url = issueUrl === "" ? checksUrl : issueUrl
   const button_type = issueUrl === "" ? "OPEN CHECKS" : "OPEN ISSUE"
 
