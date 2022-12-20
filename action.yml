@@ -14,12 +14,11 @@ inputs:
   issue_url:
     description: 'add any custom url to card'
     required: false
-    default: ""
-
+    default: ''
   author:
     description: : 'add author name of the card'
     required: false
-    default: ""
+    default: ''
 
 runs:
   using: 'node16'
