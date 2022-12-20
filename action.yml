@@ -16,7 +16,7 @@ inputs:
     required: false
     default: ''
   author:
-    description: : 'add author name of the card'
+    description: 'add author name of the card'
     required: false
     default: ''
 
