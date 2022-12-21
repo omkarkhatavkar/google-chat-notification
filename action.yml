@@ -11,6 +11,15 @@ inputs:
   status:
     description: 'job status.'
     required: true
+  issue_url:
+    description: 'add any custom url to card'
+    required: false
+    default: ''
+  author:
+    description: 'add author name of the card'
+    required: false
+    default: ''
+
 runs:
   using: 'node16'
   main: 'dist/index.js'
